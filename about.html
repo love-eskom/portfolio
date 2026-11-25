@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About | Khulekani Thabethe</title>
+    <meta name="description"
+        content="About Khulekani Thabethe, Computer Science student focused on cybersecurity, network engineering and software development.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .about-hero {
+            padding: 90px 0 65px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .about-hero h1 {
+            margin-top: 15px;
+            font-size: clamp(40px, 6vw, 64px);
+            letter-spacing: -0.06em;
+        }
+
+        .about-hero .intro {
+            max-width: 720px;
+            margin-top: 25px;
+            color: var(--text-secondary);
+            font-size: 16px;
+            line-height: 1.9;
+        }
+
+        .about-content {
+            padding: 75px 0 100px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 70px;
+            align-items: start;
+        }
+
+        .about-main section {
+            margin-bottom: 55px;
+        }
+
+        .about-main h2 {
+            font-size: 23px;
+            font-weight: 500;
+            letter-spacing: -0.04em;
+            margin-bottom: 20px;
+        }
+
+        .about-main p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.9;
+            margin-bottom: 14px;
+        }
+
+        .education-card {
+            padding: 24px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            background: var(--surface);
+        }
+
+        .education-card .school-label {
+            color: var(--accent);
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: .08em;
+        }
+
+        .education-card h3 {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .education-card p {
+            margin-top: 8px;
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+
+        .education-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 22px;
+            padding-top: 18px;
+            border-top: 1px solid var(--border);
+        }
+
+        .education-meta span {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .profile-list {
+            border-top: 1px solid var(--border);
+        }
+
+        .profile-row {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 24px;
+            padding: 18px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .profile-row .label {
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            font-size: 11px;
+        }
+
+        .profile-row .value {
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+
+        .cert-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .cert-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            padding: 17px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            background: var(--surface);
+        }
+
+        .cert-item h3 {
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .cert-item p {
+            margin: 5px 0 0;
+            font-size: 11px;
+        }
+
+        .cert-status {
+            flex-shrink: 0;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            font-size: 10px;
+        }
+
+        .cert-status.completed {
+            color: var(--green);
+        }
+
+        .about-sidebar {
+            position: sticky;
+            top: 95px;
+        }
+
+        .sidebar-card {
+            padding: 24px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            background: var(--surface);
+            margin-bottom: 16px;
+        }
+
+        .sidebar-card h3 {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .sidebar-card p {
+            color: var(--text-secondary);
+            font-size: 12px;
+            margin-top: 10px;
+            line-height: 1.8;
+        }
+
+        .sidebar-links {
+            display: flex;
+            flex-direction: column;
+            gap: 13px;
+            margin-top: 18px;
+        }
+
+        .sidebar-links a {
+            color: var(--text-secondary);
+            font-size: 12px;
+            transition: color var(--transition);
+        }
+
+        .sidebar-links a:hover {
+            color: var(--accent);
+        }
+
+        .about-cta {
+            margin-top: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        @media(max-width: 800px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about-sidebar {
+                position: static;
+            }
+        }
+
+        @media(max-width: 550px) {
+            .profile-row {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .cert-item {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container nav-wrapper">
+
+            <a href="index.html" class="brand">
+                khulekani<span>.dev</span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="projects.html">Projects</a>
+                <a href="notes.html">Notes</a>
+                <a href="about.html">About</a>
+            </nav>
+
+            <a href="index.html#contact" class="nav-contact">
+                Contact ↗
+            </a>
+
+        </div>
+    </header>
+
+
+    <main>
+
+        <section class="about-hero container">
+
+            <span class="section-label">ABOUT / PROFESSIONAL PROFILE</span>
+
+            <h1>Curiosity into capability.</h1>
+            <p class="tagline">
+                BUILD. DETECT. DEFEND.
+            </p>
+
+            <p class="intro">
+                I'm a Computer Science student at Tshwane University of
+                Technology developing a practical foundation in cybersecurity,
+                networking and software engineering.
+
+                My approach to learning is centred on building, testing,
+                investigating and documenting — not simply collecting
+                technologies or completing tutorials.
+            </p>
+
+        </section>
+
+
+        <section class="about-content container">
+
+            <div class="about-grid">
+
+                <div class="about-main">
+
+
+                    <!-- Background -->
+                    <section>
+
+                        <h2>Background</h2>
+
+                        <p>
+                            My interest in computing extends beyond software
+                            development into understanding how systems
+                            communicate, how networks are structured,
+                            and how security problems can be identified
+                            and addressed.
+                        </p>
+
+                        <p>
+                            Through personal projects, practical labs and
+                            coursework, I'm developing the ability to approach
+                            technical problems methodically, break them into
+                            components, and verify solutions through testing.
+                        </p>
+
+                        <p>
+                            I'm particularly interested in defensive security,
+                            security monitoring, detection engineering and
+                            network infrastructure.
+                        </p>
+
+                    </section>
+
+
+                    <!-- Career Direction -->
+                    <section>
+
+                        <h2>Career direction</h2>
+
+                        <p>
+                            My primary career direction is Blue Team security,
+                            particularly Security Operations Centre (SOC)
+                            environments, security monitoring and detection.
+                        </p>
+
+                        <p>
+                            I'm also actively developing networking skills.
+                            Understanding infrastructure, traffic flows,
+                            routing, segmentation and troubleshooting provides
+                            an important foundation for security work.
+                        </p>
+
+                        <p>
+                            My long-term objective is to become a technically
+                            strong security professional capable of investigating
+                            incidents, engineering detection capabilities and
+                            understanding the infrastructure behind them.
+                        </p>
+
+                    </section>
+
+
+                    <!-- Approach -->
+                    <section>
+
+                        <h2>How I approach technical work</h2>
+
+                        <div class="profile-list">
+
+                            <div class="profile-row">
+                                <span class="label">BUILD</span>
+                                <span class="value">
+                                    Develop practical tools and systems
+                                    instead of relying exclusively on theory.
+                                </span>
+                            </div>
+
+                            <div class="profile-row">
+                                <span class="label">INVESTIGATE</span>
+                                <span class="value">
+                                    Understand why a system behaves a certain
+                                    way and identify the underlying problem.
+                                </span>
+                            </div>
+
+                            <div class="profile-row">
+                                <span class="label">VERIFY</span>
+                                <span class="value">
+                                    Test implementations, validate assumptions
+                                    and consider edge cases.
+                                </span>
+                            </div>
+
+                            <div class="profile-row">
+                                <span class="label">DOCUMENT</span>
+                                <span class="value">
+                                    Record architecture, decisions, findings
+                                    and lessons for future reference.
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- Education -->
+                    <section>
+
+                        <h2>Education</h2>
+
+                        <div class="education-card">
+
+                            <span class="school-label">CURRENT EDUCATION</span>
+
+                            <h3>Diploma in Computer Science</h3>
+
+                            <p>
+                                Tshwane University of Technology
+                            </p>
+
+                            <div class="education-meta">
+                                <span>Programme: Computer Science</span>
+                                <span>Expected completion: 2028</span>
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- Certifications -->
+                    <section>
+
+                        <h2>Certifications & training</h2>
+
+                        <div class="cert-list">
+
+                            <article class="cert-item">
+                                <div>
+                                    <h3>Cisco Introduction to Cybersecurity</h3>
+                                    <p>Cisco Networking Academy</p>
+                                </div>
+
+                                <span class="cert-status completed">
+                                    COMPLETED
+                                </span>
+                            </article>
+
+
+                            <article class="cert-item">
+                                <div>
+                                    <h3>CCNA: Introduction to Networks</h3>
+                                    <p>Cisco Networking Academy</p>
+                                </div>
+
+                                <span class="cert-status completed">
+                                    COMPLETED
+                                </span>
+                            </article>
+
+
+                            <article class="cert-item">
+                                <div>
+                                    <h3>Full Stack Development</h3>
+                                    <p>FNB App Academy</p>
+                                </div>
+
+                                <span class="cert-status completed">
+                                    COMPLETED
+                                </span>
+                            </article>
+
+
+                            <article class="cert-item">
+                                <div>
+                                    <h3>Fortinet Training</h3>
+                                    <p>Network security fundamentals</p>
+                                </div>
+
+                                <span class="cert-status">
+                                    IN PROGRESS
+                                </span>
+                            </article>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- Technical skills -->
+                    <section>
+
+                        <h2>Technical foundation</h2>
+
+                        <div class="profile-list">
+
+                            <div class="profile-row">
+                                <span class="label">PROGRAMMING</span>
+                                <span class="value">
+                                    Python, Java, JavaScript, HTML, CSS
+                                </span>
+                            </div>
+
+                            <div class="profile-row">
+                                <span class="label">SECURITY</span>
+                                <span class="value">
+                                    Log analysis, detection logic,
+                                    web security testing, security reporting
+                                </span>
+                            </div>
+
+                            <div class="profile-row">
+                                <span class="label">NETWORKING</span>
+                                <span class="value">
+                                    TCP/IP, subnetting, VLANs, routing,
+                                    ACLs, DHCP, DNS, SSH
+                                </span>
+                            </div>
+
+                            <div class="profile-row">
+                                <span class="label">TOOLS</span>
+                                <span class="value">
+                                    Linux, Git, GitHub, Wireshark,
+                                    Burp Suite, Packet Tracer
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- CTA -->
+                    <section>
+
+                        <h2>Let's connect</h2>
+
+                        <p>
+                            I'm interested in internships, work-integrated
+                            learning, technical opportunities and connecting
+                            with professionals in security and networking.
+                        </p>
+
+                        <div class="about-cta">
+
+                            <a href="index.html#contact" class="button button-primary">
+                                Contact me
+                            </a>
+
+                            <!-- <a href="documents/Khulekani-Thabethe-CV.pdf" class="button button-secondary"
+                                target="_blank">
+                                Download CV
+                            </a> -->
+
+                        </div>
+
+                    </section>
+
+                </div>
+
+
+                <!-- Sidebar -->
+                <aside class="about-sidebar">
+
+                    <div class="sidebar-card">
+
+                        <span class="section-label">PROFILE</span>
+
+                        <h3>Technical interests</h3>
+
+                        <p>
+                            Areas I'm actively developing through coursework,
+                            labs and personal engineering projects.
+                        </p>
+
+                        <div class="sidebar-links">
+                            <a href="projects.html">Security & Detection →</a>
+                            <a href="projects.html">Network Engineering →</a>
+                            <a href="projects.html">Python Development →</a>
+                            <a href="notes.html">Technical Research →</a>
+                        </div>
+
+                    </div>
+
+
+                    <div class="sidebar-card">
+
+                        <span class="section-label">LINKS</span>
+
+                        <h3>Find me online</h3>
+
+                        <div class="sidebar-links">
+
+                            <a href="https://github.com/love-eskom" target="_blank" rel="noopener noreferrer">
+                                GitHub ↗
+                            </a>
+
+                            <a href="https://www.linkedin.com/in/gcinikhaya-thabethe-33167b274/" target="_blank"
+                                rel="noopener noreferrer">
+                                LinkedIn ↗
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </aside>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+
+            <span class="brand">
+                khulekani<span>.dev</span>
+            </span>
+
+            <p>Engineering through practical work.</p>
+
+            <span class="footer-copy">© 2026</span>
+
+        </div>
+    </footer>
+
+</body>
+
+</html>

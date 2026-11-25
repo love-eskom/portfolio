@@ -1,0 +1,489 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Engineering Notes | Khulekani</title>
+
+    <meta name="description"
+          content="Technical notes, security research, engineering decisions, network troubleshooting and lessons from practical projects.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .notes-hero {
+            padding: 90px 0 65px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .notes-hero h1 {
+            margin-top: 15px;
+            font-size: clamp(40px, 6vw, 64px);
+            letter-spacing: -0.06em;
+        }
+
+        .notes-hero p {
+            max-width: 650px;
+            margin-top: 20px;
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+        .notes-main {
+            padding: 65px 0 100px;
+        }
+
+        .notes-intro {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        .notes-intro h2 {
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .notes-intro span {
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            font-size: 11px;
+        }
+
+        .article-list {
+            border-top: 1px solid var(--border);
+        }
+
+        .article-card {
+            display: grid;
+            grid-template-columns: 150px 1fr 100px;
+            gap: 25px;
+            align-items: start;
+
+            padding: 30px 0;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .article-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .article-category {
+            color: var(--accent);
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: .08em;
+        }
+
+        .article-status {
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            font-size: 10px;
+        }
+
+        .article-content h3 {
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: -0.03em;
+        }
+
+        .article-content p {
+            max-width: 650px;
+            margin-top: 10px;
+            color: var(--text-secondary);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .article-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-top: 16px;
+        }
+
+        .article-tags span {
+            padding: 4px 8px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            font-size: 10px;
+        }
+
+        .article-read {
+            color: var(--text-muted);
+            font-size: 12px;
+            text-align: right;
+        }
+
+        .article-card.published .article-content h3 a {
+            transition: color var(--transition);
+        }
+
+        .article-card.published:hover .article-content h3 a {
+            color: var(--accent);
+        }
+
+        .notes-callout {
+            margin-top: 55px;
+            padding: 26px;
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+
+            background: var(--surface);
+        }
+
+        .notes-callout h3 {
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .notes-callout p {
+            margin-top: 10px;
+            color: var(--text-secondary);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .notes-callout a {
+            display: inline-block;
+            margin-top: 18px;
+            color: var(--accent);
+            font-size: 12px;
+        }
+
+        @media(max-width: 700px) {
+            .article-card {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .article-meta {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .article-read {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="site-header">
+    <div class="container nav-wrapper">
+
+        <a href="index.html" class="brand">
+            khulekani<span>.dev</span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="projects.html">Projects</a>
+            <a href="notes.html">Notes</a>
+            <a href="about.html">About</a>
+        </nav>
+
+        <a href="index.html#contact" class="nav-contact">
+            Contact ↗
+        </a>
+
+    </div>
+</header>
+
+
+<main>
+
+    <section class="notes-hero container">
+
+        <span class="section-label">
+            KNOWLEDGE BASE / TECHNICAL DOCUMENTATION
+        </span>
+
+        <h1>Engineering Notes.</h1>
+
+        <p>
+            Technical documentation, troubleshooting records,
+            security research and lessons learned while building
+            systems and developing engineering skills.
+
+            These notes document not just what worked, but why
+            it worked and what I learned along the way.
+        </p>
+
+    </section>
+
+
+    <section class="notes-main container">
+
+
+        <div class="notes-intro">
+
+            <h2>Technical writing</h2>
+
+            <span>RESEARCH / DOCUMENTATION</span>
+
+        </div>
+
+
+        <div class="article-list">
+
+
+            <!-- Detection Engineering -->
+            <article class="article-card">
+
+                <div class="article-meta">
+                    <span class="article-category">
+                        DETECTION ENGINEERING
+                    </span>
+
+                    <span class="article-status">
+                        IN DEVELOPMENT
+                    </span>
+                </div>
+
+                <div class="article-content">
+
+                    <h3>
+                        Designing a Normalized Security Event Model
+                    </h3>
+
+                    <p>
+                        Exploring how raw authentication logs can be
+                        transformed into structured event objects
+                        with consistent fields, predictable behaviour
+                        and clear interfaces.
+                    </p>
+
+                    <div class="article-tags">
+                        <span>Python</span>
+                        <span>Dataclasses</span>
+                        <span>Architecture</span>
+                        <span>MiniSOC</span>
+                    </div>
+
+                </div>
+
+                <span class="article-read">Project notes</span>
+
+            </article>
+
+
+            <!-- Stateful detection -->
+            <article class="article-card">
+
+                <div class="article-meta">
+                    <span class="article-category">
+                        SECURITY MONITORING
+                    </span>
+
+                    <span class="article-status">
+                        IN DEVELOPMENT
+                    </span>
+                </div>
+
+                <div class="article-content">
+
+                    <h3>
+                        Why Detection Systems Need State
+                    </h3>
+
+                    <p>
+                        Understanding why individual log entries
+                        aren't always sufficient, and how temporal
+                        correlation can identify patterns across
+                        multiple events.
+                    </p>
+
+                    <div class="article-tags">
+                        <span>Detection Logic</span>
+                        <span>State</span>
+                        <span>Time Windows</span>
+                    </div>
+
+                </div>
+
+                <span class="article-read">Project notes</span>
+
+            </article>
+
+
+            <!-- Parser -->
+            <article class="article-card">
+
+                <div class="article-meta">
+                    <span class="article-category">
+                        SOFTWARE ENGINEERING
+                    </span>
+
+                    <span class="article-status">
+                        IN DEVELOPMENT
+                    </span>
+                </div>
+
+                <div class="article-content">
+
+                    <h3>
+                        Building a Linux Authentication Log Parser
+                    </h3>
+
+                    <p>
+                        Parsing SSH authentication events, extracting
+                        relevant fields, handling malformed inputs
+                        and designing a reusable parser interface.
+                    </p>
+
+                    <div class="article-tags">
+                        <span>Regex</span>
+                        <span>Linux</span>
+                        <span>Python</span>
+                        <span>Testing</span>
+                    </div>
+
+                </div>
+
+                <span class="article-read">Project notes</span>
+
+            </article>
+
+
+            <!-- Networking -->
+            <article class="article-card">
+
+                <div class="article-meta">
+                    <span class="article-category">
+                        NETWORK ENGINEERING
+                    </span>
+
+                    <span class="article-status">
+                        IN DEVELOPMENT
+                    </span>
+                </div>
+
+                <div class="article-content">
+
+                    <h3>
+                        Troubleshooting Inter-VLAN Connectivity
+                    </h3>
+
+                    <p>
+                        A methodical approach to investigating VLAN
+                        configuration, trunking, routing, ACL behaviour
+                        and connectivity failures.
+                    </p>
+
+                    <div class="article-tags">
+                        <span>VLANs</span>
+                        <span>ACLs</span>
+                        <span>Routing</span>
+                        <span>Troubleshooting</span>
+                    </div>
+
+                </div>
+
+                <span class="article-read">Lab notes</span>
+
+            </article>
+
+
+            <!-- Network scanning -->
+            <article class="article-card">
+
+                <div class="article-meta">
+                    <span class="article-category">
+                        NETWORK TOOLING
+                    </span>
+
+                    <span class="article-status">
+                        IN DEVELOPMENT
+                    </span>
+                </div>
+
+                <div class="article-content">
+
+                    <h3>
+                        Building a Network Scanner with Python Sockets
+                    </h3>
+
+                    <p>
+                        Exploring TCP connectivity, socket timeouts,
+                        port scanning, error handling and the design
+                        of a lightweight network utility.
+                    </p>
+
+                    <div class="article-tags">
+                        <span>Python</span>
+                        <span>Sockets</span>
+                        <span>TCP</span>
+                        <span>Networking</span>
+                    </div>
+
+                </div>
+
+                <span class="article-read">Lab notes</span>
+
+            </article>
+
+
+        </div>
+
+
+        <div class="notes-callout">
+
+            <span class="section-label">DOCUMENTATION PRINCIPLE</span>
+
+            <h3>Documentation is part of the engineering.</h3>
+
+            <p>
+                Every note is grounded in practical work,
+                experimentation, technical investigation or
+                a documented engineering decision.
+                The goal is to create a record of learning
+                that can be revisited, verified and improved.
+            </p>
+
+            <a href="projects.html">
+                Explore the projects behind these notes →
+            </a>
+
+        </div>
+
+
+    </section>
+
+</main>
+
+
+<footer class="site-footer">
+    <div class="container footer-content">
+
+        <span class="brand">
+            khulekani<span>.dev</span>
+        </span>
+
+        <p>Engineering through practical work.</p>
+
+        <span class="footer-copy">© 2026</span>
+
+    </div>
+</footer>
+
+</body>
+</html>

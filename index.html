@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Khulekani Thabethe | Security & Network Engineering</title>
+
+    <meta name="description"
+        content="Computer Science student focused on cybersecurity, network engineering, detection systems and practical software development.">
+
+    <meta name="theme-color" content="#0a0a0a">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="site-header">
+        <div class="container nav-wrapper">
+
+            <a href="index.html" class="brand">
+                khulekani<span>.dev</span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="projects.html">Projects</a>
+                <a href="notes.html">Notes</a>
+                <a href="about.html">About</a>
+            </nav>
+
+            <a href="contact.html" class="nav-contact">
+                Contact <span>↗</span>
+            </a>
+
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- Hero -->
+        <section class="hero container">
+
+            <div class="hero-meta">
+                <span class="status-dot"></span>
+                <span>BASED IN GAUTENG, SOUTH AFRICA</span>
+                <span class="meta-divider">/</span>
+                <span>COMPUTER SCIENCE</span>
+            </div>
+
+            <h1>
+                Building security systems.
+                <span>Understanding networks.</span>
+                Engineering solutions.
+            </h1>
+
+            <p class="tagline">
+                BUILD. DETECT. DEFEND.
+            </p>
+            
+            <p class="hero-description">
+                Computer Science student developing practical security tools,
+                detection systems and network infrastructure.
+
+                I build practical tools, investigate system behaviour
+                and document the engineering decisions behind my work.
+            </p>
+
+            <div class="hero-actions">
+
+                <a href="projects.html" class="button button-primary">
+                    Explore my projects
+                    <span>↗</span>
+                </a>
+
+                <!-- <a href="documents/Khulekani-Thabethe-CV.pdf" class="button button-secondary" target="_blank">
+                    View CV
+                </a> -->
+
+            </div>
+
+            <div class="hero-links">
+
+                <a href="https://github.com/love-eskom" target="_blank" rel="noopener noreferrer">
+                    GitHub ↗
+                </a>
+
+                <a href="https://www.linkedin.com/in/gcinikhaya-thabethe/" target="_blank" rel="noopener noreferrer">
+                    LinkedIn ↗
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- Current Focus -->
+        <section class="focus-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <div>
+                        <span class="section-label">CURRENT DIRECTION / 2026</span>
+                        <h2>What I'm working towards</h2>
+                    </div>
+                </div>
+
+                <div class="focus-grid">
+
+                    <article class="focus-card">
+                        <span class="focus-number">01</span>
+
+                        <h3>Blue Team & Detection</h3>
+
+                        <p>
+                            Building log-analysis pipelines, detection logic,
+                            event models and tools for security monitoring.
+                        </p>
+                    </article>
+
+                    <article class="focus-card">
+                        <span class="focus-number">02</span>
+
+                        <h3>Network Engineering</h3>
+
+                        <p>
+                            Developing practical understanding of network
+                            architecture, segmentation, infrastructure
+                            troubleshooting and security.
+                        </p>
+                    </article>
+
+                    <article class="focus-card">
+                        <span class="focus-number">03</span>
+
+                        <h3>Software Engineering</h3>
+
+                        <p>
+                            Writing structured, testable software using
+                            Python, Java, version control and
+                            object-oriented design.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Selected Projects -->
+        <section class="projects-section container" id="projects">
+
+            <div class="section-heading section-heading-split">
+
+                <div>
+                    <span class="section-label">01 / SELECTED WORK</span>
+                    <h2>Projects & Labs</h2>
+                </div>
+
+                <a href="projects.html" class="text-link">
+                    View all projects →
+                </a>
+
+            </div>
+
+
+            <!-- Featured project -->
+            <article class="project-featured">
+
+                <div class="project-topline">
+
+                    <div class="project-id">
+                        <span class="project-index">PROJECT / 001</span>
+                        <span class="project-category">DETECTION ENGINEERING</span>
+                    </div>
+
+                    <span class="project-status status-active">
+                        IN DEVELOPMENT
+                    </span>
+
+                </div>
+
+                <h3>MiniSOC</h3>
+
+                <p class="project-subtitle">
+                    Stateful security event processing and detection engine
+                </p>
+
+                <p class="project-description">
+                    A modular detection system designed to transform raw
+                    security telemetry into structured events and actionable
+                    alerts. Built around event normalization, reusable
+                    parsers, stateful detection and testable architecture.
+                </p>
+
+
+                <div class="architecture">
+
+                    <span class="architecture-label">
+                        SYSTEM PIPELINE
+                    </span>
+
+                    <div class="pipeline">
+
+                        <div class="pipeline-node">
+                            <small>01 / INPUT</small>
+                            <strong>Raw Logs</strong>
+                        </div>
+
+                        <span class="pipeline-arrow">→</span>
+
+                        <div class="pipeline-node">
+                            <small>02 / PARSE</small>
+                            <strong>Parser</strong>
+                        </div>
+
+                        <span class="pipeline-arrow">→</span>
+
+                        <div class="pipeline-node">
+                            <small>03 / MODEL</small>
+                            <strong>Events</strong>
+                        </div>
+
+                        <span class="pipeline-arrow">→</span>
+
+                        <div class="pipeline-node pipeline-highlight">
+                            <small>04 / DETECT</small>
+                            <strong>State Engine</strong>
+                        </div>
+
+                        <span class="pipeline-arrow">→</span>
+
+                        <div class="pipeline-node">
+                            <small>05 / OUTPUT</small>
+                            <strong>Alerts</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project-footer">
+
+                    <div class="tech-stack">
+                        <span>Python</span>
+                        <span>OOP</span>
+                        <span>Pytest</span>
+                        <span>Regex</span>
+                        <span>Linux Logs</span>
+                    </div>
+
+                    <a href="projects/minisoc.html" class="project-link">
+                        Explore project ↗
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- Secondary projects -->
+            <div class="project-grid">
+
+                <article class="project-card">
+
+                    <div class="project-topline">
+                        <span class="project-index">LAB-001</span>
+                        <span class="project-category">NETWORKING</span>
+                    </div>
+
+                    <h3>Enterprise Office Network</h3>
+
+                    <p>
+                        A segmented corporate network implementing
+                        department-level VLANs, inter-VLAN routing,
+                        DHCP, DNS and access control policies.
+                    </p>
+
+                    <div class="tech-stack">
+                        <span>Networking</span>
+                        <span>VLANs</span>
+                        <span>ACLs</span>
+                    </div>
+
+                    <a href="projects/lab-001-network.html" class="project-link">
+                        View case study ↗
+                    </a>
+
+                </article>
+
+
+                <article class="project-card">
+
+                    <div class="project-topline">
+                        <span class="project-index">LAB-002</span>
+                        <span class="project-category">SECURITY TOOLING</span>
+                    </div>
+
+                    <h3>Network Scanner</h3>
+
+                    <p>
+                        A Python network utility exploring socket
+                        programming, connectivity checks, port scanning
+                        and network discovery.
+                    </p>
+
+                    <div class="tech-stack">
+                        <span>Python</span>
+                        <span>Sockets</span>
+                        <span>Networking</span>
+                    </div>
+
+                    <a href="projects/lab-002-scanner.html" class="project-link">
+                        View case study ↗
+                    </a>
+
+                </article>
+
+
+                <article class="project-card">
+
+                    <div class="project-topline">
+                        <span class="project-index">LAB-003</span>
+                        <span class="project-category">SOC AUTOMATION</span>
+                    </div>
+
+                    <h3>Security Log Triage Tool</h3>
+
+                    <p>
+                        A Python-based log analysis utility that identifies
+                        suspicious authentication behaviour and generates
+                        structured security reports.
+                    </p>
+
+                    <div class="tech-stack">
+                        <span>Python</span>
+                        <span>Detection</span>
+                        <span>JSON / CSV</span>
+                    </div>
+
+                    <a href="projects/lab-003-soc.html" class="project-link">
+                        View case study ↗
+                    </a>
+
+                </article>
+
+
+                <article class="project-card project-card-more">
+
+                    <div class="more-content">
+
+                        <span class="section-label">
+                            CONTINUOUS DEVELOPMENT
+                        </span>
+
+                        <h3>More experiments.<br>More systems.</h3>
+
+                        <p>
+                            Exploring security, networking, automation
+                            and software engineering through practical labs.
+                        </p>
+
+                    </div>
+
+                    <a href="projects.html" class="project-link">
+                        Browse the lab directory →
+                    </a>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- Technical Areas -->
+        <section class="expertise-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <div>
+                        <span class="section-label">02 / TECHNICAL FOUNDATION</span>
+                        <h2>Areas of practice</h2>
+                    </div>
+                </div>
+
+
+                <div class="expertise-list">
+
+                    <div class="expertise-row">
+
+                        <div class="expertise-title">
+                            <span>01</span>
+                            <h3>Security</h3>
+                        </div>
+
+                        <div class="expertise-items">
+                            <span>Security Monitoring</span>
+                            <span>Log Analysis</span>
+                            <span>Detection Logic</span>
+                            <span>Web Security Testing</span>
+                            <span>Incident Reporting</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="expertise-row">
+
+                        <div class="expertise-title">
+                            <span>02</span>
+                            <h3>Networking</h3>
+                        </div>
+
+                        <div class="expertise-items">
+                            <span>TCP/IP</span>
+                            <span>Subnetting</span>
+                            <span>VLANs</span>
+                            <span>Routing</span>
+                            <span>ACLs</span>
+                            <span>Network Troubleshooting</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="expertise-row">
+
+                        <div class="expertise-title">
+                            <span>03</span>
+                            <h3>Development</h3>
+                        </div>
+
+                        <div class="expertise-items">
+                            <span>Python</span>
+                            <span>Java</span>
+                            <span>JavaScript</span>
+                            <span>OOP</span>
+                            <span>Automated Testing</span>
+                            <span>Git</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Latest Notes -->
+        <section class="notes-section container">
+
+            <div class="section-heading section-heading-split">
+
+                <div>
+                    <span class="section-label">03 / KNOWLEDGE BASE</span>
+                    <h2>Engineering notes</h2>
+                </div>
+
+                <a href="notes.html" class="text-link">
+                    Browse notes →
+                </a>
+
+            </div>
+
+
+            <div class="notes-list">
+
+                <a href="notes/stateful-detection.html" class="note-item">
+
+                    <div>
+                        <span class="note-category">DETECTION ENGINEERING</span>
+
+                        <h3>
+                            Why detection systems need state
+                        </h3>
+
+                        <p>
+                            Moving beyond individual log entries to
+                            correlate authentication activity over time.
+                        </p>
+                    </div>
+
+                    <span class="note-arrow">↗</span>
+
+                </a>
+
+
+                <a href="notes/vlan-troubleshooting.html" class="note-item">
+
+                    <div>
+                        <span class="note-category">NETWORK ENGINEERING</span>
+
+                        <h3>
+                            Troubleshooting inter-VLAN communication
+                        </h3>
+
+                        <p>
+                            A structured approach to diagnosing
+                            connectivity, routing and access-control issues.
+                        </p>
+                    </div>
+
+                    <span class="note-arrow">↗</span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        
+        <div class="contact-actions">
+            
+            <!-- Contact -->
+            <section class="contact-section container" id="contact">
+            
+                <div class="contact-panel contact-panel-form">
+            
+                    <div class="contact-intro">
+            
+                        <span class="section-label">
+                            CONTACT / OPPORTUNITIES
+                        </span>
+            
+                        <h2>
+                            Have something
+                            <span>worth discussing?</span>
+                        </h2>
+            
+                        <p>
+                            Whether it's an internship opportunity, technical
+                            collaboration, networking conversation or simply
+                            connecting professionally, feel free to reach out.
+                        </p>
+            
+                        <div class="contact-direct-links">
+            
+                            <a href="https://github.com/love-eskom" target="_blank" rel="noopener noreferrer">
+                                GitHub ↗
+                            </a>
+            
+                            <a href="https://www.linkedin.com/in/gcinikhaya-thabethe/" target="_blank" rel="noopener noreferrer">
+                                LinkedIn ↗
+                            </a>
+            
+                        </div>
+            
+                    </div>
+            
+            
+                    <!-- Replace YOUR_FORM_ID with your actual Formspree ID -->
+                    <form class="contact-form" action="https://formspree.io/f/xeagnljv" method="POST">
+            
+                        <!-- Honeypot spam prevention (make sure .honeypot has display: none in style.css) -->
+                        <input type="text" name="_gotcha" class="honeypot" style="display: none;" tabindex="-1" autocomplete="off"
+                            aria-hidden="true">
+            
+                        <!-- Optional: sets the email subject line in Formspree -->
+                        <input type="hidden" name="_subject" value="New portfolio inquiry from khulekani.dev">
+            
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your name" autocomplete="name" required>
+                        </div>
+            
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+                        </div>
+            
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="What would you like to discuss?" required>
+                        </div>
+            
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Write your message here..."
+                                required></textarea>
+                        </div>
+            
+                        <button type="submit" class="button button-primary form-submit">
+                            Send message
+                            <span>↗</span>
+                        </button>
+            
+                        <p class="form-note">
+                            Your information will only be used to respond to your message.
+                        </p>
+            
+                    </form>
+            
+                </div>
+            
+            </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+
+        <div class="container footer-content">
+
+            <span class="brand">
+                khulekani<span>.dev</span>
+            </span>
+
+            <p>
+                Designed, developed and documented by Khulekani.
+            </p>
+
+            <span class="footer-copy">
+                © 2026
+            </span>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>

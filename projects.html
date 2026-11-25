@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Projects & Labs | Khulekani</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .page-hero {
+            padding: 90px 0 65px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .page-hero h1 {
+            margin-top: 15px;
+            font-size: clamp(38px, 6vw, 60px);
+            letter-spacing: -0.06em;
+        }
+
+        .page-hero p {
+            max-width: 620px;
+            margin-top: 20px;
+            color: var(--text-secondary);
+        }
+
+        .directory {
+            padding: 65px 0 100px;
+        }
+
+        .directory-group {
+            margin-bottom: 55px;
+        }
+
+        .directory-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 18px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 20px;
+        }
+
+        .directory-heading h2 {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .directory-heading span {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .directory-card {
+            display: grid;
+            grid-template-columns: 130px 1fr auto;
+            gap: 25px;
+            align-items: start;
+
+            padding: 25px 0;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .directory-id {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--accent);
+        }
+
+        .directory-content h3 {
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: -0.03em;
+        }
+
+        .directory-content p {
+            max-width: 650px;
+            margin-top: 8px;
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+
+        .directory-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-top: 14px;
+        }
+
+        .directory-tags span {
+            padding: 4px 8px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 650px) {
+            .directory-card {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container nav-wrapper">
+
+            <a href="index.html" class="brand">
+                khulekani<span>.dev</span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="projects.html">Projects</a>
+                <a href="notes.html">Notes</a>
+                <a href="about.html">About</a>
+            </nav>
+
+            <a href="index.html#contact" class="nav-contact">
+                Contact ↗
+            </a>
+
+        </div>
+    </header>
+
+
+    <main>
+
+        <section class="page-hero container">
+
+            <span class="section-label">TECHNICAL PORTFOLIO / LAB DIRECTORY</span>
+
+            <h1>Projects & Labs</h1>
+
+            <p>
+                Practical engineering work across cybersecurity,
+                network infrastructure, automation and software development.
+                Each project documents the problem, design decisions,
+                implementation and verification.
+            </p>
+
+        </section>
+
+
+        <section class="directory container">
+
+
+            <!-- SECURITY -->
+            <div class="directory-group">
+
+                <div class="directory-heading">
+                    <h2>Security & Detection</h2>
+                    <span>02 PROJECTS</span>
+                </div>
+
+
+                <article class="directory-card">
+
+                    <span class="directory-id">MiniSOC</span>
+
+                    <div class="directory-content">
+
+                        <h3>
+                            <a href="projects/minisoc.html">
+                                MiniSOC — Detection Engine
+                            </a>
+                        </h3>
+
+                        <p>
+                            A modular event processing and stateful detection
+                            engine for Linux authentication telemetry.
+                        </p>
+
+                        <div class="directory-tags">
+                            <span>Python</span>
+                            <span>Detection Engineering</span>
+                            <span>Pytest</span>
+                            <span>Event Models</span>
+                        </div>
+
+                    </div>
+
+                    <a href="projects/minisoc.html" class="project-link">
+                        Details ↗
+                    </a>
+
+                </article>
+
+
+                <article class="directory-card">
+
+                    <span class="directory-id">LAB-003</span>
+
+                    <div class="directory-content">
+
+                        <h3>
+                            <a href="projects/lab-003-soc.html">
+                                SOC Log Triage & Detection Toolkit
+                            </a>
+                        </h3>
+
+                        <p>
+                            A log-analysis utility that detects suspicious
+                            authentication behaviour, evaluates security
+                            conditions and generates incident reports.
+                        </p>
+
+                        <div class="directory-tags">
+                            <span>Python</span>
+                            <span>Log Analysis</span>
+                            <span>JSON</span>
+                            <span>CSV</span>
+                        </div>
+
+                    </div>
+
+                    <a href="projects/lab-003-soc.html" class="project-link">
+                        Details ↗
+                    </a>
+
+                </article>
+
+            </div>
+
+
+            <!-- NETWORKING -->
+            <div class="directory-group">
+
+                <div class="directory-heading">
+                    <h2>Networking & Infrastructure</h2>
+                    <span>02 PROJECTS</span>
+                </div>
+
+
+                <article class="directory-card">
+
+                    <span class="directory-id">LAB-001</span>
+
+                    <div class="directory-content">
+
+                        <h3>
+                            <a href="projects/lab-001-network.html">
+                                Enterprise Office Network
+                            </a>
+                        </h3>
+
+                        <p>
+                            Multi-department enterprise network featuring
+                            segmentation, inter-VLAN routing, DHCP, DNS
+                            and access control policies.
+                        </p>
+
+                        <div class="directory-tags">
+                            <span>VLANs</span>
+                            <span>ACLs</span>
+                            <span>Routing</span>
+                            <span>Packet Tracer</span>
+                        </div>
+
+                    </div>
+
+                    <a href="projects/lab-001-network.html" class="project-link">
+                        Details ↗
+                    </a>
+
+                </article>
+
+
+                <article class="directory-card">
+
+                    <span class="directory-id">LAB-002</span>
+
+                    <div class="directory-content">
+
+                        <h3>
+                            <a href="projects/lab-002-scanner.html">
+                                Python Network Scanner
+                            </a>
+                        </h3>
+
+                        <p>
+                            A network discovery utility exploring
+                            TCP connectivity, socket programming,
+                            port scanning and automation.
+                        </p>
+
+                        <div class="directory-tags">
+                            <span>Python</span>
+                            <span>TCP</span>
+                            <span>Sockets</span>
+                            <span>Networking</span>
+                        </div>
+
+                    </div>
+
+                    <a href="projects/lab-002-scanner.html" class="project-link">
+                        Details ↗
+                    </a>
+
+                </article>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+
+            <span class="brand">
+                khulekani<span>.dev</span>
+            </span>
+
+            <p>Engineering through practical work.</p>
+
+            <span class="footer-copy">© 2026</span>
+
+        </div>
+    </footer>
+
+</body>
+
+</html>
