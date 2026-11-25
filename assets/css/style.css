@@ -1223,3 +1223,128 @@ img {
     color: var(--accent);
     margin-top: 1.5rem;
 }
+
+
+Case Study Images & Evidence Grid
+.case-study-figure {
+    margin: 2rem 0;
+    background: #111111;
+    border: 1px solid #222222;
+    border-radius: 8px;
+    padding: 0.75rem;
+}
+
+.case-study-figure img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    display: block;
+}
+
+.case-study-figure figcaption {
+    margin-top: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: #888888;
+}
+
+.evidence-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+
+.evidence-grid .case-study-figure {
+    margin: 0;
+}
+
+/* Validation Table */
+.table-wrapper {
+    overflow-x: auto;
+    margin: 2rem 0;
+    border: 1px solid #222222;
+    border-radius: 8px;
+}
+
+.validation-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.validation-table th,
+.validation-table td {
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid #222222;
+}
+
+.validation-table th {
+    background: #111111;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #888888;
+}
+
+.validation-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.badge-pass {
+    display: inline-block;
+    padding: 0.2rem 0.55rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: #22c55e;
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.25);
+    border-radius: 4px;
+}
+
+/* Uniform 3-Tile Evidence Grid */
+.evidence-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 26px;
+}
+
+.case-study-figure {
+    margin: 0;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.case-study-figure img {
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    background: #181818;
+    border: 1px solid #1f1f1f;
+    border-radius: 4px;
+    display: block;
+}
+
+.case-study-figure figcaption {
+    margin-top: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    line-height: 1.6;
+    color: var(--muted);
+}
+
+.topology-figure img {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+    background: #ffffff;
+}

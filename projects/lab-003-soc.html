@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOC Log Triage & Detection Toolkit | Khulekani</title>
+  <meta name="description"
+    content="A Python SOC detection project covering log processing, rule-based detection and structured reporting.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    :root {
+      --bg: #090909;
+      --panel: #101010;
+      --line: #262626;
+      --text: #f2f2f2;
+      --muted: #a1a1a1;
+      --accent: #3b82f6;
+      --green: #6ee7a0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .navbar {
+      min-height: 86px;
+      padding: 0 3.1%;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      font-family: monospace;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: #666;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 34px;
+    }
+
+    .nav-links a {
+      color: #aaa;
+      text-decoration: none;
+      font-size: 15px;
+    }
+
+    .nav-links a:hover,
+    .nav-contact:hover {
+      color: var(--text);
+    }
+
+    .nav-contact {
+      padding: 12px 16px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      text-decoration: none;
+      font-family: monospace;
+      color: #aaa;
+    }
+
+    .project-page {
+      max-width: 1080px;
+      margin: auto;
+      padding: 76px 34px 100px;
+    }
+
+    .eyebrow,
+    .section-label {
+      color: var(--accent);
+      font: 12px monospace;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 82px);
+      line-height: 1.02;
+      letter-spacing: -.06em;
+      max-width: 920px;
+      margin: 22px 0;
+    }
+
+    .lede {
+      color: var(--muted);
+      max-width: 760px;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 30px 0;
+    }
+
+    .meta span {
+      border: 1px solid var(--line);
+      padding: 9px 12px;
+      color: #aaa;
+      font: 11px monospace;
+      letter-spacing: .06em;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 30px 0 70px;
+    }
+
+    .actions a {
+      border: 1px solid #333;
+      border-radius: 6px;
+      padding: 13px 17px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .actions a.primary {
+      background: var(--text);
+      color: #090909;
+      border-color: var(--text);
+    }
+
+    section {
+      border-top: 1px solid var(--line);
+      padding: 42px 0;
+    }
+
+    h2 {
+      font-size: clamp(26px, 4vw, 38px);
+      letter-spacing: -.04em;
+      margin: 15px 0 20px;
+    }
+
+    h3 {
+      font-size: 17px;
+      margin: 0 0 10px;
+    }
+
+    p,
+    li {
+      color: var(--muted);
+      line-height: 1.85;
+    }
+
+    ul {
+      padding-left: 22px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .tile {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 21px;
+    }
+
+    .tile .num {
+      color: var(--accent);
+      font: 11px monospace;
+      display: block;
+      margin-bottom: 14px;
+    }
+
+    .tile p {
+      font-size: 13px;
+      margin-bottom: 0;
+    }
+
+    .callout {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 22px;
+      margin-top: 22px;
+      color: #bdbdbd;
+      line-height: 1.8;
+    }
+
+    .status {
+      color: var(--green);
+      font: 11px monospace;
+      letter-spacing: .1em;
+    }
+
+    /* Case Study Images & Evidence Grid */
+    .case-study-figure {
+      margin: 2rem 0;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0.75rem;
+    }
+
+    .case-study-figure img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      display: block;
+    }
+
+    .case-study-figure figcaption {
+      margin-top: 0.75rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+
+    .evidence-grid .case-study-figure {
+      margin: 0;
+    }
+
+    .footer {
+      border-top: 1px solid var(--line);
+      padding-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer a {
+      color: #aaa;
+      text-decoration: none;
+    }
+
+    @media (max-width: 720px) {
+      .navbar {
+        padding: 20px;
+        flex-wrap: wrap;
+      }
+
+      .nav-links {
+        order: 3;
+        width: 100%;
+        gap: 20px;
+      }
+
+      .project-page {
+        padding: 48px 22px 70px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="navbar">
+    <a href="../index.html" class="logo">khulekani<span>.dev</span></a>
+    <nav class="nav-links">
+      <a href="../projects.html">Projects</a>
+      <a href="../notes.html">Notes</a>
+      <a href="../about.html">About</a>
+    </nav>
+    <a href="../index.html#contact" class="nav-contact">Contact ↗</a>
+  </header>
+
+  <main class="project-page">
+    <div class="eyebrow">LAB-003 / SECURITY &amp; SOFTWARE</div>
+    <h1>SOC Log Triage &amp; Detection Toolkit.</h1>
+    <p class="lede">
+      A Python-based security monitoring project exploring log processing, suspicious-activity detection and structured
+      reporting.
+    </p>
+
+    <div class="meta">
+      <span>PYTHON</span>
+      <span>LOG ANALYSIS</span>
+      <span>DETECTION RULES</span>
+      <span>JSON / CSV</span>
+      <span>COMPLETED</span>
+    </div>
+
+    <div class="actions">
+      <a class="primary" href="https://github.com/love-eskom/Security-Log-Analysis-Pipeline" target="_blank"
+        rel="noopener noreferrer">
+        View repository ↗
+      </a>
+      <a href="../projects.html">All projects</a>
+    </div>
+
+    <section>
+      <div class="section-label">01 / PROJECT CONTEXT</div>
+      <h2>Turning security logs into useful signals</h2>
+      <p>
+        This Python-based SOC detection tool explores a practical security-monitoring workflow: generating and parsing
+        log data, evaluating activity against detection conditions, and producing reports that make suspicious behaviour
+        easier to review.
+      </p>
+      <p>
+        The project demonstrates how Python, object-oriented design and timestamp-based analysis can be applied to
+        defensive security tasks.
+      </p>
+    </section>
+
+    <section>
+      <div class="section-label">02 / CAPABILITIES</div>
+      <h2>Detection and reporting workflow</h2>
+      <div class="grid">
+        <article class="tile">
+          <span class="num">01 / INPUT</span>
+          <h3>Log generation &amp; parsing</h3>
+          <p>Generate and process sample security log activity for analysis.</p>
+        </article>
+
+        <article class="tile">
+          <span class="num">02 / DETECTION</span>
+          <h3>Rule-based analysis</h3>
+          <p>Identify patterns including repeated failed logins, after-hours activity and PowerShell-related events.</p>
+        </article>
+
+        <article class="tile">
+          <span class="num">03 / OUTPUT</span>
+          <h3>Structured reporting</h3>
+          <p>Export detection results in JSON and CSV formats for review.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-label">03 / IMPLEMENTATION</div>
+      <h2>Python concepts applied</h2>
+      <ul>
+        <li>Object-oriented programming to organize the tool's components.</li>
+        <li>Regular expressions and datetime handling for log parsing and time-based analysis.</li>
+        <li>Failed-login detection using timestamps and a defined threshold.</li>
+        <li>Alert generation for suspicious activity, including after-hours and PowerShell events.</li>
+        <li>JSON and CSV reporting for machine-readable and tabular output.</li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-label">04 / ENGINEERING REFLECTION</div>
+      <h2>What this project demonstrates</h2>
+      <p>
+        This project is an earlier, more focused detection tool. It provides a practical foundation in log processing
+        and rule-based detection. MiniSOC is a separate, more modular project that builds on these interests through
+        normalized event models, parser abstractions and a more extensible architecture.
+      </p>
+      <div class="callout">
+        Portfolio distinction: this project demonstrates a working SOC-style detection workflow; MiniSOC explores the
+        architecture of a more extensible detection engine.
+      </div>
+    </section>
+
+    <section>
+      <div class="section-label">05 / VALIDATION</div>
+      <h2>Detection output &amp; report evidence</h2>
+      <p>
+        Executing the pipeline against simulated authentication and endpoint activity flags threshold-based brute-force
+        attempts, after-hours access, and suspicious PowerShell execution, exporting alerts to both JSON and CSV formats.
+      </p>
+    
+      <!-- 3-Column Evidence Grid (Matches LAB-001) -->
+      <div class="evidence-grid">
+        <figure class="case-study-figure">
+          <img src="../assets/images/lab-003/output.png"
+            alt="Terminal output from Security Log Analysis Pipeline showing severity-ranked alerts">
+          <figcaption>FIG 01 — Console alert output from running the detection pipeline.</figcaption>
+        </figure>
+    
+        <figure class="case-study-figure">
+          <img src="../assets/images/lab-003/log-json.png"
+            alt="Structured JSON alert output generated by the log triage tool">
+          <figcaption>FIG 02 — Structured JSON alert export (logs.json).</figcaption>
+        </figure>
+    
+        <figure class="case-study-figure">
+          <img src="../assets/images/lab-003/log-csv.png" alt="CSV alert summary generated by the log triage tool">
+          <figcaption>FIG 03 — Tabular CSV report export (logs.csv).</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <div class="footer">
+      <div>
+        <div class="eyebrow">BUILD. DETECT. DEFEND.</div>
+        <p>Software · Networks · Security</p>
+      </div>
+      <a href="../projects.html">← Back to projects</a>
+    </div>
+  </main>
+</body>
+
+</html>
