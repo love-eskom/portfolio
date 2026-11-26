@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stateful Detection | Engineering Notes — Khulekani</title>
+  <meta name="description"
+    content="Engineering notes on stateful security detection, event tracking, time windows, thresholds, and brute-force detection logic.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/engineering-notes.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="../index.html" class="brand">khulekani<span>.dev</span></a>
+      <nav class="nav-links">
+        <a href="../projects.html">Projects</a>
+        <a href="../notes.html">Notes</a>
+        <a href="../about.html">About</a>
+      </nav>
+      <a href="../index.html#contact" class="nav-contact">Contact <span>↗</span></a>
+    </div>
+  </header>
+
+  <main class="note-page">
+    <header class="note-hero">
+      <div class="note-eyebrow">ENGINEERING NOTES / DETECTION ENGINEERING</div>
+      <h1>Stateful Detection.</h1>
+      <p class="note-lede">How detection logic uses accumulated event context over time to identify behaviour that
+        cannot be understood from a single event in isolation.</p>
+
+      <div class="note-meta">
+        <span>DETECTION ENGINEERING</span>
+        <span>EVENT CORRELATION</span>
+        <span>PYTHON</span>
+        <span>MINISOC</span>
+      </div>
+
+      <div class="note-actions">
+        <a class="note-action-primary" href="https://github.com/love-eskom/MiniSOC" target="_blank"
+          rel="noopener noreferrer">View MiniSOC ↗</a>
+        <a href="../notes.html">All engineering notes</a>
+      </div>
+    </header>
+
+    <div class="note-content">
+      <section>
+        <div class="section-label">01 / CONCEPT</div>
+        <h2>Detection requires context</h2>
+        <p>A stateless detection rule evaluates an event independently. It may identify a single failed login, an
+          unusual process, or a connection to a particular destination.</p>
+        <p>Stateful detection keeps relevant information from earlier events and evaluates new activity against that
+          accumulated context. This makes it possible to identify patterns that emerge over time—such as repeated
+          authentication failures from one source within a defined period.</p>
+        <div class="note-callout">
+          <strong>Core idea</strong><br>
+          One event provides an observation. A sequence of events can provide behavioural evidence.
+        </div>
+      </section>
+
+      <section>
+        <div class="section-label">02 / STATELESS VS STATEFUL</div>
+        <h2>Two different ways to evaluate events</h2>
+        <div class="note-grid">
+          <article class="note-card">
+            <span class="note-card-index">STATELESS</span>
+            <h3>Single-event evaluation</h3>
+            <p>Evaluates an event using only the fields available in that event. No history is required.</p>
+          </article>
+          <article class="note-card">
+            <span class="note-card-index">STATEFUL</span>
+            <h3>Context over time</h3>
+            <p>Maintains relevant event history or counters and uses that context when evaluating incoming events.</p>
+          </article>
+          <article class="note-card">
+            <span class="note-card-index">TRADE-OFF</span>
+            <h3>More context, more responsibility</h3>
+            <p>State introduces lifecycle, expiry, memory management, event ordering and reset considerations.</p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-label">03 / EXAMPLE</div>
+        <h2>Repeated authentication failures</h2>
+        <p>A single failed authentication attempt may be routine. A sequence of failures associated with the same source
+          within a short time window may warrant investigation.</p>
+        <p>A basic detection model tracks the relevant source, the timestamps of failed attempts, and a configurable
+          threshold. When the number of failures inside the active window reaches the threshold, the detector emits an
+          alert.</p>
+
+        <div class="note-callout">
+          <strong>Illustrative rule</strong><br>
+          Trigger an alert when a source records at least <code>N</code> failed authentication events within
+          <code>T</code> minutes. The threshold and time window should be configurable and tuned to the environment.
+        </div>
+
+        <h3>Conceptual event sequence</h3>
+        <div class="note-card">
+          <pre><code>Event 1 ── Failed login ──┐
+Event 2 ── Failed login ──┤
+Event 3 ── Failed login ──┤── Context updated
+Event 4 ── Failed login ──┤
+                          └── Threshold reached
+                               │
+                               ▼
+                         Alert generated</code></pre>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-label">04 / DETECTION LIFECYCLE</div>
+        <h2>Maintain, evaluate, expire</h2>
+        <div class="note-grid">
+          <article class="note-card">
+            <span class="note-card-index">01 / INGEST</span>
+            <h3>Receive event</h3>
+            <p>Accept a normalized authentication event and determine whether it is relevant to the rule.</p>
+          </article>
+          <article class="note-card">
+            <span class="note-card-index">02 / UPDATE</span>
+            <h3>Track context</h3>
+            <p>Record the event in the state associated with its correlation key, such as a source address.</p>
+          </article>
+          <article class="note-card">
+            <span class="note-card-index">03 / WINDOW</span>
+            <h3>Expire old data</h3>
+            <p>Remove observations that fall outside the configured time window.</p>
+          </article>
+          <article class="note-card">
+            <span class="note-card-index">04 / EVALUATE</span>
+            <h3>Check threshold</h3>
+            <p>Evaluate the remaining observations against the rule's threshold.</p>
+          </article>
+          <article class="note-card">
+            <span class="note-card-index">05 / ALERT</span>
+            <h3>Produce evidence</h3>
+            <p>When the condition is met, create an alert containing the relevant event context.</p>
+          </article>
+          <article class="note-card">
+            <span class="note-card-index">06 / CLEANUP</span>
+            <h3>Manage state</h3>
+            <p>Remove inactive keys and prevent tracking data from growing indefinitely.</p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-label">05 / STATE DESIGN</div>
+        <h2>What should the detector remember?</h2>
+        <p>State should contain only the information required to evaluate the rule. For a simple failed-login detector,
+          the state may be keyed by source address and contain timestamps for recent failures.</p>
+        <div class="note-card">
+          <pre><code>state = {
+    "source_key": [
+        timestamp_1,
+        timestamp_2,
+        timestamp_3
+    ]
+}</code></pre>
+        </div>
+        <p>This is a conceptual representation, not a prescribed implementation. Depending on the rule, state may
+          instead contain counters, sets of affected accounts, last-seen timestamps, or other compact context.</p>
+        <h3>Design considerations</h3>
+        <ul>
+          <li><strong>Correlation key:</strong> decide which entity groups events together, such as source IP, username,
+            host, or a combination.</li>
+          <li><strong>Time source:</strong> use event timestamps consistently and consider clock skew or out-of-order
+            records.</li>
+          <li><strong>Expiry:</strong> define when observations are no longer relevant.</li>
+          <li><strong>Memory:</strong> bound state size and clean up inactive keys.</li>
+          <li><strong>Alert behaviour:</strong> decide whether a threshold produces one alert, repeated alerts, or an
+            alert with updated evidence.</li>
+        </ul>
+      </section>
+
+      <section>
+        <div class="section-label">06 / IMPLEMENTATION NOTES</div>
+        <h2>Moving from concept to code</h2>
+        <p>In MiniSOC, stateful detection is separated from parsing. Parsers convert source records into normalized
+          events; detection components consume those events and maintain only the context required by their rules.</p>
+        <p>A dedicated state-management component can help keep detection rules focused on evaluating conditions rather
+          than duplicating storage and expiry logic.</p>
+        <div class="note-callout">
+          <strong>Implementation discipline</strong><br>
+          Keep state handling explicit, testable and bounded. Prefer a small, well-defined interface over a detector
+          that mixes parsing, event storage, threshold logic and reporting.
+        </div>
+        <h3>Questions to answer during implementation</h3>
+        <ul>
+          <li>What is the correlation key and why?</li>
+          <li>Are events processed in timestamp order or arrival order?</li>
+          <li>How are events exactly on the time-window boundary handled?</li>
+          <li>What happens when state is empty or a key is first observed?</li>
+          <li>How is expired state removed?</li>
+          <li>How do tests verify threshold and expiry behaviour?</li>
+        </ul>
+      </section>
+
+      <section>
+        <div class="section-label">07 / TESTING</div>
+        <h2>Verify the behaviour, not just the alert</h2>
+        <p>A stateful detector should be tested across event sequences. Testing only a single event is insufficient to
+          validate accumulation, expiry and threshold behaviour.</p>
+        <ul>
+          <li>Events below the threshold do not trigger an alert.</li>
+          <li>Reaching the threshold within the active window triggers the expected alert.</li>
+          <li>Events outside the configured window are excluded.</li>
+          <li>Events associated with different correlation keys remain isolated.</li>
+          <li>State is cleaned up when it becomes inactive.</li>
+          <li>Repeated evaluation follows the intended alert policy.</li>
+          <li>Boundary timestamps and out-of-order events behave consistently.</li>
+        </ul>
+        <div class="note-callout">Record the actual test cases and results in the project documentation after
+          implementing them. Do not claim behaviour that has not been verified.</div>
+      </section>
+
+      <section>
+        <div class="section-label">08 / LIMITATIONS & TRADE-OFFS</div>
+        <h2>State introduces complexity</h2>
+        <p>Stateful rules can provide stronger behavioural context, but they also introduce operational and design
+          challenges.</p>
+        <ul>
+          <li>Thresholds may produce false positives or fail to detect activity that stays below them.</li>
+          <li>Event ordering and timestamp quality can affect evaluation.</li>
+          <li>State must be bounded and cleaned up to avoid resource exhaustion.</li>
+          <li>Restarting a process may discard in-memory state unless persistence is implemented.</li>
+          <li>Correlation keys may be incomplete or shared by multiple users or systems.</li>
+        </ul>
+        <p>A detection rule should be evaluated in the context of its environment. A threshold is a starting point for
+          investigation—not proof of malicious activity.</p>
+      </section>
+
+      <section>
+        <div class="section-label">09 / REFERENCES</div>
+        <h2>Further reading</h2>
+        <ul>
+          <li><a href="https://attack.mitre.org/" target="_blank" rel="noopener noreferrer">MITRE ATT&amp;CK</a> —
+            behavioural techniques and defensive context.</li>
+          <li><a href="https://www.nist.gov/cyberframework" target="_blank" rel="noopener noreferrer">NIST Cybersecurity
+              Framework</a> — security monitoring within a broader security programme.</li>
+        </ul>
+      </section>
+
+    </div>
+
+    <footer class="note-footer">
+      <div>
+        <div class="note-eyebrow">BUILD. DETECT. DEFEND.</div>
+        <p>Software · Networks · Security</p>
+      </div>
+      <a href="../notes.html">← Back to engineering notes</a>
+    </footer>
+  </main>
+</body>
+
+</html>

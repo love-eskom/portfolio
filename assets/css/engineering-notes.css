@@ -1,0 +1,332 @@
+/* =========================================
+   13. ENGINEERING NOTES
+========================================= */
+
+.note-page {
+    width: min(860px, calc(100% - 48px));
+    margin-inline: auto;
+    padding: 72px 0 48px;
+}
+
+.note-hero {
+    padding-bottom: 36px;
+    border-bottom: 1px solid var(--border);
+}
+
+.note-eyebrow {
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.note-hero h1 {
+    margin-top: 18px;
+    font-size: clamp(36px, 6vw, 58px);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.06em;
+}
+
+.note-lede {
+    max-width: 700px;
+    margin-top: 22px;
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.85;
+}
+
+.note-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 24px;
+}
+
+.note-meta span {
+    padding: 5px 9px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 10px;
+}
+
+.note-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 24px;
+}
+
+.note-actions a {
+    color: var(--text-secondary);
+    font-size: 12px;
+    transition: color var(--transition);
+}
+
+.note-actions a:hover,
+.note-content a:hover {
+    color: var(--accent);
+}
+
+.note-actions .note-action-primary {
+    color: var(--text);
+}
+
+.note-content section {
+    padding: 42px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.note-content section:last-of-type {
+    border-bottom: 0;
+}
+
+.note-content h2 {
+    margin-top: 12px;
+    font-size: clamp(23px, 4vw, 30px);
+    font-weight: 600;
+    letter-spacing: -0.045em;
+    line-height: 1.25;
+}
+
+.note-content h3 {
+    margin-top: 28px;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.025em;
+}
+
+.note-content p {
+    margin-top: 16px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.note-content ul,
+.note-content ol {
+    display: grid;
+    gap: 10px;
+    margin-top: 18px;
+    padding-left: 22px;
+    color: var(--text-secondary);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.note-content li::marker {
+    color: var(--accent);
+}
+
+.note-content strong {
+    color: var(--text);
+    font-weight: 500;
+}
+
+.note-content a {
+    color: var(--text-secondary);
+    text-decoration: underline;
+    text-decoration-color: var(--border-hover);
+    text-underline-offset: 3px;
+    transition: color var(--transition);
+}
+
+.note-content code {
+    padding: 2px 6px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--surface-raised);
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+}
+
+.note-content pre {
+    overflow-x: auto;
+    margin-top: 18px;
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--bg);
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 1.85;
+    tab-size: 4;
+}
+
+.note-content pre code {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font-size: inherit;
+}
+
+.note-callout {
+    margin-top: 22px;
+    padding: 18px 20px;
+    border: 1px solid rgba(41, 151, 255, 0.22);
+    border-left: 2px solid var(--accent);
+    border-radius: var(--radius-sm);
+    background: var(--accent-soft);
+}
+
+.note-callout strong {
+    color: var(--text);
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.note-callout p {
+    margin-top: 6px;
+}
+
+.note-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.note-card {
+    min-width: 0;
+    padding: 22px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+}
+
+.note-card-index {
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+}
+
+.note-card h3 {
+    margin-top: 14px;
+}
+
+.note-card p {
+    margin-top: 8px;
+    font-size: 13px;
+}
+
+.note-flow {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.note-flow-item {
+    position: relative;
+    min-width: 0;
+    padding: 16px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+}
+
+.note-flow-item span {
+    display: block;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 10px;
+}
+
+.note-flow-item strong {
+    display: block;
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.note-flow-item.is-highlighted {
+    border-color: rgba(41, 151, 255, 0.35);
+    background: var(--accent-soft);
+}
+
+.note-flow-item.is-highlighted strong {
+    color: var(--accent);
+}
+
+.note-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+}
+
+.note-footer p {
+    margin-top: 8px;
+    color: var(--text-muted);
+    font-size: 11px;
+}
+
+.note-footer a {
+    color: var(--text-secondary);
+    font-size: 12px;
+    transition: color var(--transition);
+}
+
+.note-footer a:hover {
+    color: var(--accent);
+}
+
+/* Engineering note responsive layout */
+
+@media (max-width: 700px) {
+    .note-page {
+        padding-top: 52px;
+    }
+
+    .note-content section {
+        padding: 32px 0;
+    }
+
+    .note-grid,
+    .note-flow {
+        grid-template-columns: 1fr;
+    }
+
+    .note-card {
+        padding: 20px;
+    }
+
+    .note-content pre {
+        padding: 16px;
+        font-size: 11px;
+    }
+
+    .note-footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 600px) {
+    .note-page {
+        width: calc(100% - 32px);
+    }
+
+    .note-lede {
+        font-size: 14px;
+    }
+
+    .note-meta {
+        gap: 6px;
+    }
+
+    .note-meta span {
+        font-size: 9px;
+    }
+}
