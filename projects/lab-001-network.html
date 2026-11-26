@@ -1,85 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Enterprise Office Network | Khulekani</title>
-  <meta name="description" content="A Packet Tracer enterprise networking lab covering VLANs, routing, services, SSH and ACLs.">
+  <meta name="description"
+    content="A Packet Tracer enterprise networking lab covering VLANs, routing, services, SSH and ACLs.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+
   <link rel="stylesheet" href="../assets/css/style.css">
-  <style>
-        :root {
-          --bg: #090909; --panel: #101010; --line: #262626;
-          --text: #f2f2f2; --muted: #a1a1a1; --accent: #3b82f6;
-          --green: #6ee7a0;
-        }
-        * { box-sizing: border-box; }
-        body {
-          margin: 0; background: var(--bg); color: var(--text);
-          font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        }
-        a { color: inherit; }
-
-        .navbar {
-          min-height: 86px; padding: 0 3.1%; border-bottom: 1px solid var(--line);
-          display: flex; align-items: center; justify-content: space-between; gap: 24px;
-        }
-        .logo { font-family: monospace; font-weight: 700; text-decoration: none; }
-        
-        .logo span { color: #666; }
-        
-        .nav-links { display: flex; gap: 34px; }
-        
-        .nav-links a { color: #aaa; text-decoration: none; font-size: 15px; }
-        
-        .nav-links a:hover, .nav-contact:hover { color: var(--text); }
-        
-        .nav-contact { padding: 12px 16px; border: 1px solid var(--line); border-radius: 7px;
-          text-decoration: none; font-family: monospace; color: #aaa; }
-        
-        .project-page { max-width: 1080px; margin: auto; padding: 76px 34px 100px; }
-        
-        .eyebrow, .section-label { color: var(--accent); font: 12px monospace;
-          letter-spacing: .13em; text-transform: uppercase; }
-
-        h1 { font-size: clamp(42px, 7vw, 82px); line-height: 1.02; letter-spacing: -.06em;
-          max-width: 920px; margin: 22px 0; }
-        
-          .lede { color: var(--muted); max-width: 760px; font-size: 18px; line-height: 1.8; }
-        
-          .meta { display: flex; flex-wrap: wrap; gap: 10px; margin: 30px 0; }
-        
-          .meta span { border: 1px solid var(--line); padding: 9px 12px; color: #aaa;
-          font: 11px monospace; letter-spacing: .06em; }
-        
-          .actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 30px 0 70px; }
-        
-          .actions a { border: 1px solid #333; border-radius: 6px; padding: 13px 17px;
-          text-decoration: none; font-size: 14px; }
-        .actions a.primary { background: var(--text); color: #090909; border-color: var(--text); }
-        section { border-top: 1px solid var(--line); padding: 42px 0; }
-        h2 { font-size: clamp(26px, 4vw, 38px); letter-spacing: -.04em; margin: 15px 0 20px; }
-        h3 { font-size: 17px; margin: 0 0 10px; }
-        p, li { color: var(--muted); line-height: 1.85; }
-        ul { padding-left: 22px; }
-        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 26px; }
-        .tile { background: var(--panel); border: 1px solid var(--line); padding: 21px; }
-        .tile .num { color: var(--accent); font: 11px monospace; display: block; margin-bottom: 14px; }
-        .tile p { font-size: 13px; margin-bottom: 0; }
-        .callout { background: var(--panel); border: 1px solid var(--line); padding: 22px;
-          margin-top: 22px; color: #bdbdbd; line-height: 1.8; }
-        .status { color: var(--green); font: 11px monospace; letter-spacing: .1em; }
-        .footer { border-top: 1px solid var(--line); padding-top: 30px; display: flex;
-          justify-content: space-between; gap: 20px; flex-wrap: wrap; }
-        .footer a { color: #aaa; text-decoration: none; }
-        @media (max-width: 720px) {
-          .navbar { padding: 20px; flex-wrap: wrap; }
-          .nav-links { order: 3; width: 100%; gap: 20px; }
-          .project-page { padding: 48px 22px 70px; }
-          .grid { grid-template-columns: 1fr; }
-        }
-</style>
+  <link rel="stylesheet" href="../assets/css/projects.css">
 </head>
+
 <body>
+
   <header class="navbar">
     <a href="../index.html" class="logo">khulekani<span>.dev</span></a>
     <nav class="nav-links">
@@ -89,156 +29,177 @@
     </nav>
     <a href="../index.html#contact" class="nav-contact">Contact ↗</a>
   </header>
+
   <main class="project-page">
     <div class="eyebrow">LAB-001 / NETWORK ENGINEERING</div>
     <h1>Enterprise Office Network.</h1>
-    <p class="lede">A practical network-design lab exploring segmentation, inter-VLAN connectivity, infrastructure services and access control.</p>
-    <div class="meta"><span>CISCO PACKET TRACER</span>
-<span>VLANs</span>
-<span>ROUTING</span>
-<span>ACLs</span>
-<span>NETWORK SERVICES</span><span>COMPLETED</span></div>
+    <p class="lede">A practical network-design lab exploring segmentation, inter-VLAN connectivity, infrastructure
+      services and access control.</p>
+
+    <div class="meta">
+      <span>CISCO PACKET TRACER</span>
+      <span>VLANs</span>
+      <span>ROUTING</span>
+      <span>ACLs</span>
+      <span>NETWORK SERVICES</span>
+      <span>COMPLETED</span>
+    </div>
+
     <div class="actions">
-      <a class="primary" href="https://github.com/love-eskom" target="_blank" rel="noopener noreferrer">GitHub profile ↗</a>
+      <a class="primary" href="https://github.com/love-eskom" target="_blank" rel="noopener noreferrer">GitHub profile
+        ↗</a>
       <a href="../projects.html">All projects</a>
     </div>
-    
-        <section>
-          <div class="section-label">01 / PROJECT CONTEXT</div>
-          <h2>Designing a segmented office network</h2>
-          
-<p>This Packet Tracer lab models an enterprise-style office network with multiple VLANs and shared network services. The focus is on understanding how logical segmentation, routing and access controls work together in a small business environment.</p>
-<p>The lab brings networking concepts into a practical topology rather than treating each protocol or configuration as an isolated exercise.</p>
 
-        </section>
-        
-        <section>
-          <div class="section-label">02 / NETWORK DESIGN</div>
-          <h2>Core infrastructure components</h2>
-          
-<div class="grid">
-  <article class="tile"><span class="num">01 / SEGMENTATION</span><h3>VLANs</h3><p>Separate network groups into logical broadcast domains.</p></article>
-  <article class="tile"><span class="num">02 / CONNECTIVITY</span><h3>Inter-VLAN routing</h3><p>Use router-on-a-stick to provide communication between VLANs.</p></article>
-  <article class="tile"><span class="num">03 / SERVICES</span><h3>Network services</h3><p>Configure DHCP, DNS and web services within the lab environment.</p></article>
-</div>
+    <section>
+      <div class="section-label">01 / PROJECT CONTEXT</div>
+      <h2>Designing a segmented office network</h2>
+      <p>This Packet Tracer lab models an enterprise-style office network with multiple VLANs and shared network
+        services. The focus is on understanding how logical segmentation, routing and access controls work together in
+        a small business environment.</p>
+      <p>The lab brings networking concepts into a practical topology rather than treating each protocol or
+        configuration as an isolated exercise.</p>
+    </section>
 
-        </section>
-        
-        <section>
-          <div class="section-label">03 / IMPLEMENTATION</div>
-          <h2>Configuration areas</h2>
-          
-<ul>
-  <li>VLAN creation and port assignment.</li>
-  <li>Trunking and router-on-a-stick configuration.</li>
-  <li>DHCP addressing and DNS service configuration.</li>
-  <li>Web service connectivity.</li>
-  <li>SSH management access.</li>
-  <li>Access control lists (ACLs) to control permitted traffic.</li>
-</ul>
+    <section>
+      <div class="section-label">02 / NETWORK DESIGN</div>
+      <h2>Core infrastructure components</h2>
+      <div class="grid">
+        <article class="tile">
+          <span class="num">01 / SEGMENTATION</span>
+          <h3>VLANs</h3>
+          <p>Separate network groups into logical broadcast domains.</p>
+        </article>
+        <article class="tile">
+          <span class="num">02 / CONNECTIVITY</span>
+          <h3>Inter-VLAN routing</h3>
+          <p>Use router-on-a-stick to provide communication between VLANs.</p>
+        </article>
+        <article class="tile">
+          <span class="num">03 / SERVICES</span>
+          <h3>Network services</h3>
+          <p>Configure DHCP, DNS and web services within the lab environment.</p>
+        </article>
+      </div>
+    </section>
 
-        </section>
-        
-        <section>
-          <div class="section-label">04 / ENGINEERING FOCUS</div>
-          <h2>Connectivity, segmentation and control</h2>
-          
-<p>The important learning outcome is understanding how network components depend on one another. A host can have a valid address and still fail to communicate because of VLAN membership, trunk configuration, routing, gateway settings or filtering rules.</p>
-<p>ACLs add a security dimension: connectivity should be intentional, not simply unrestricted.</p>
+    <section>
+      <div class="section-label">03 / IMPLEMENTATION</div>
+      <h2>Configuration areas</h2>
+      <ul>
+        <li>VLAN creation and port assignment.</li>
+        <li>Trunking and router-on-a-stick configuration.</li>
+        <li>DHCP addressing and DNS service configuration.</li>
+        <li>Web service connectivity.</li>
+        <li>SSH management access.</li>
+        <li>Access control lists (ACLs) to control permitted traffic.</li>
+      </ul>
+    </section>
 
-        </section>
-        
-        <section>
-          <div class="section-label">05 / VALIDATION</div>
-          <h2>Demonstrating that the network works</h2>
-          
-<p>Use your actual Packet Tracer file and verification results to demonstrate the topology. Good evidence includes successful DHCP leases, inter-VLAN reachability where permitted, DNS resolution, web access, SSH management and ACL tests showing both allowed and blocked traffic.</p>
-<!-- <div class="callout">Before publishing, add a topology screenshot and a concise test-results table from your own lab. Do not claim a test passed unless you performed it.</div> -->
+    <section>
+      <div class="section-label">04 / ENGINEERING FOCUS</div>
+      <h2>Connectivity, segmentation and control</h2>
+      <p>The important learning outcome is understanding how network components depend on one another. A host can have a
+        valid address and still fail to communicate because of VLAN membership, trunk configuration, routing, gateway
+        settings or filtering rules.</p>
+      <p>ACLs add a security dimension: connectivity should be intentional, not simply unrestricted.</p>
+    </section>
 
-<!-- Topology Screenshot -->
-<figure class="case-study-figure topology-figure">
-  <img src="../assets/images/lab-001/topology.png"
-    alt="Cisco Packet Tracer topology showing 5 segmented VLANs, Router-on-a-Stick, and centralized DHCP, DNS, and Web servers">
-  <figcaption>FIG 01 — Logical topology featuring VLANs 10-50, 802.1Q trunking, Router-on-a-Stick, and centralized
-    servers.</figcaption>
-</figure>
+    <section>
+      <div class="section-label">05 / VALIDATION</div>
+      <h2>Demonstrating that the network works</h2>
+      <p>Use your actual Packet Tracer file and verification results to demonstrate the topology. Good evidence
+        includes successful DHCP leases, inter-VLAN reachability where permitted, DNS resolution, web access, SSH
+        management and ACL tests showing both allowed and blocked traffic.</p>
 
-<!-- Validation Results Table -->
-<div class="table-wrapper">
-  <table class="validation-table">
-    <thead>
-      <tr>
-        <th>Test Case</th>
-        <th>Target / Scope</th>
-        <th>Verification Method</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>VLAN Segmentation</td>
-        <td>VLANs 10, 20, 30, 40, 50</td>
-        <td>Verified switchport assignments &amp; 802.1Q trunk status</td>
-        <td><span class="badge-pass">PASS</span></td>
-      </tr>
-      <tr>
-        <td>DHCP Lease Assignment</td>
-        <td>192.168.50.2 (via ip helper-address)</td>
-        <td>Requested dynamic IPv4 addresses across client VLANs</td>
-        <td><span class="badge-pass">PASS</span></td>
-      </tr>
-      <tr>
-        <td>DNS Hostname Resolution</td>
-        <td>192.168.50.3</td>
-        <td>Resolved internal domain names from department hosts</td>
-        <td><span class="badge-pass">PASS</span></td>
-      </tr>
-      <tr>
-        <td>Internal Web Access</td>
-        <td>192.168.50.4 (HTTP)</td>
-        <td>Loaded internal company portal via Packet Tracer browser</td>
-        <td><span class="badge-pass">PASS</span></td>
-      </tr>
-      <tr>
-        <td>SSH Remote Management</td>
-        <td>192.168.30.2 (IT VLAN 30)</td>
-        <td>Authenticated encrypted CLI session from IT admin host</td>
-        <td><span class="badge-pass">PASS</span></td>
-      </tr>
-      <tr>
-        <td>Extended ACL &amp; Port Security</td>
-        <td>Guest VLAN 40 &amp; unused ports</td>
-        <td>Confirmed blocked unauthorized traffic &amp; disabled unused ports</td>
-        <td><span class="badge-pass">PASS</span></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+      <!-- Topology Screenshot -->
+      <figure class="case-study-figure topology-figure">
+        <img src="../assets/images/lab-001/topology.png"
+          alt="Cisco Packet Tracer topology showing 5 segmented VLANs, Router-on-a-Stick, and centralized DHCP, DNS, and Web servers">
+        <figcaption>Logical Topology - featuring VLANs 10-50, 802.1Q trunking, Router-on-a-Stick, and centralized
+          servers.</figcaption>
+      </figure>
 
-<!-- Verification Evidence Screenshots -->
-<div class="evidence-grid">
-  <figure class="case-study-figure">
-    <img src="../assets/images/lab-001/webpage.png" alt="Internal company website hosted on 192.168.50.4">
-    <figcaption>FIG 01 — Internal web server verification.</figcaption>
-  </figure>
+      <!-- Validation Results Table -->
+      <div class="table-wrapper">
+        <table class="validation-table">
+          <thead>
+            <tr>
+              <th>Test Case</th>
+              <th>Target / Scope</th>
+              <th>Verification Method</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>VLAN Segmentation</td>
+              <td>VLANs 10, 20, 30, 40, 50</td>
+              <td>Verified switchport assignments &amp; 802.1Q trunk status</td>
+              <td><span class="badge-pass">PASS</span></td>
+            </tr>
+            <tr>
+              <td>DHCP Lease Assignment</td>
+              <td>192.168.50.2 (via ip helper-address)</td>
+              <td>Requested dynamic IPv4 addresses across client VLANs</td>
+              <td><span class="badge-pass">PASS</span></td>
+            </tr>
+            <tr>
+              <td>DNS Hostname Resolution</td>
+              <td>192.168.50.3</td>
+              <td>Resolved internal domain names from department hosts</td>
+              <td><span class="badge-pass">PASS</span></td>
+            </tr>
+            <tr>
+              <td>Internal Web Access</td>
+              <td>192.168.50.4 (HTTP)</td>
+              <td>Loaded internal company portal via Packet Tracer browser</td>
+              <td><span class="badge-pass">PASS</span></td>
+            </tr>
+            <tr>
+              <td>SSH Remote Management</td>
+              <td>192.168.30.2 (IT VLAN 30)</td>
+              <td>Authenticated encrypted CLI session from IT admin host</td>
+              <td><span class="badge-pass">PASS</span></td>
+            </tr>
+            <tr>
+              <td>Extended ACL &amp; Port Security</td>
+              <td>Guest VLAN 40 &amp; unused ports</td>
+              <td>Confirmed blocked unauthorized traffic &amp; disabled unused ports</td>
+              <td><span class="badge-pass">PASS</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-  <figure class="case-study-figure">
-    <img src="../assets/images/lab-001/dns.png" alt="Internal DNS resolution test">
-    <figcaption>FIG 02 — Internal DNS name resolution (192.168.50.3).</figcaption>
-  </figure>
+      <!-- Verification Evidence Screenshots -->
+      <div class="evidence-grid">
+        <figure class="case-study-figure">
+          <img src="../assets/images/lab-001/webpage.png" alt="Internal company website hosted on 192.168.50.4">
+          <figcaption>FIG 01 — Internal web server verification.</figcaption>
+        </figure>
 
-  <figure class="case-study-figure">
-    <img src="../assets/images/lab-001/ssh.png" alt="Encrypted SSH remote management session to switch">
-    <figcaption>FIG 03 — Remote SSH management session to 192.168.30.1.</figcaption>
-  </figure>
+        <figure class="case-study-figure">
+          <img src="../assets/images/lab-001/dns.png" alt="Internal DNS resolution test">
+          <figcaption>FIG 02 — Internal DNS name resolution (192.168.50.3).</figcaption>
+        </figure>
 
-</div>
-        </section>
-        
+        <figure class="case-study-figure">
+          <img src="../assets/images/lab-001/ssh.png" alt="Encrypted SSH remote management session to switch">
+          <figcaption>FIG 03 — Remote SSH management session to 192.168.30.1.</figcaption>
+        </figure>
+      </div>
+    </section>
+
     <div class="footer">
-      <div><div class="eyebrow">BUILD. DETECT. DEFEND.</div><p>Software · Networks · Security</p></div>
+      <div>
+        <div class="eyebrow">BUILD. DETECT. DEFEND.</div>
+        <p>Software · Networks · Security</p>
+      </div>
       <a href="../projects.html">← Back to projects</a>
     </div>
   </main>
+
 </body>
+
 </html>

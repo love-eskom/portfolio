@@ -1,0 +1,509 @@
+/* =========================================
+   01. HERO
+========================================= */
+
+.hero {
+    padding-top: 85px;
+    padding-bottom: 105px;
+}
+
+.hero-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    margin-bottom: 30px;
+
+    color: var(--text-muted);
+
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.07em;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+    background: var(--green);
+
+    box-shadow: 0 0 10px rgba(101, 214, 138, 0.25);
+}
+
+.meta-divider {
+    color: #444;
+}
+
+.hero h1 {
+    max-width: 900px;
+
+    font-size: clamp(40px, 7vw, 76px);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.065em;
+}
+
+.hero h1 span {
+    display: block;
+    color: var(--text-secondary);
+}
+
+.hero-description {
+    max-width: 640px;
+
+    margin-top: 28px;
+
+    color: var(--text-secondary);
+
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin-top: 32px;
+}
+
+.hero-links {
+    display: flex;
+    gap: 24px;
+
+    margin-top: 30px;
+}
+
+.hero-links a {
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 12px;
+
+    transition: color var(--transition);
+}
+
+.hero-links a:hover {
+    color: var(--accent);
+}
+
+
+/* =========================================
+   02. CURRENT FOCUS
+========================================= */
+
+.focus-section {
+    padding: 75px 0;
+
+    background: #0d0d0d;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.focus-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.focus-card {
+    padding: 24px;
+
+    border: 1px solid var(--border);
+    background: var(--surface);
+
+    border-radius: var(--radius-md);
+
+    transition: border-color var(--transition);
+}
+
+.focus-card:hover {
+    border-color: var(--border-hover);
+}
+
+.focus-number {
+    color: var(--accent);
+
+    font-family: var(--font-mono);
+    font-size: 11px;
+}
+
+.focus-card h3 {
+    margin-top: 20px;
+
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+}
+
+.focus-card p {
+    margin-top: 10px;
+
+    color: var(--text-secondary);
+
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   03. EXPERTISE
+========================================= */
+
+.expertise-section {
+    padding: 85px 0;
+
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+
+    background: #0d0d0d;
+}
+
+.expertise-list {
+    border-top: 1px solid var(--border);
+}
+
+.expertise-row {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 40px;
+
+    padding: 28px 0;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.expertise-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.expertise-title span {
+    color: var(--text-muted);
+
+    font-family: var(--font-mono);
+    font-size: 11px;
+}
+
+.expertise-title h3 {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.expertise-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.expertise-items span {
+    padding: 7px 11px;
+
+    border: 1px solid var(--border);
+    border-radius: 5px;
+
+    color: var(--text-secondary);
+
+    font-size: 12px;
+}
+
+
+/* =========================================
+   04. RESPONSIVE (HOME)
+========================================= */
+
+@media (max-width: 800px) {
+    .hero {
+        padding-top: 90px;
+        padding-bottom: 80px;
+    }
+
+    .focus-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .expertise-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero {
+        padding-top: 75px;
+        padding-bottom: 70px;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .hero-meta {
+        font-size: 9px;
+        gap: 7px;
+    }
+
+    .expertise-row {
+        padding: 24px 0;
+    }
+}/* =========================================
+   01. HERO
+========================================= */
+
+.hero {
+    padding-top: 85px;
+    padding-bottom: 105px;
+}
+
+.hero-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    margin-bottom: 30px;
+
+    color: var(--text-muted);
+
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.07em;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+    background: var(--green);
+
+    box-shadow: 0 0 10px rgba(101, 214, 138, 0.25);
+}
+
+.meta-divider {
+    color: #444;
+}
+
+.hero h1 {
+    max-width: 900px;
+
+    font-size: clamp(40px, 7vw, 76px);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.065em;
+}
+
+.hero h1 span {
+    display: block;
+    color: var(--text-secondary);
+}
+
+.hero-description {
+    max-width: 640px;
+
+    margin-top: 28px;
+
+    color: var(--text-secondary);
+
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin-top: 32px;
+}
+
+.hero-links {
+    display: flex;
+    gap: 24px;
+
+    margin-top: 30px;
+}
+
+.hero-links a {
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 12px;
+
+    transition: color var(--transition);
+}
+
+.hero-links a:hover {
+    color: var(--accent);
+}
+
+
+/* =========================================
+   02. CURRENT FOCUS
+========================================= */
+
+.focus-section {
+    padding: 75px 0;
+
+    background: #0d0d0d;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.focus-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.focus-card {
+    padding: 24px;
+
+    border: 1px solid var(--border);
+    background: var(--surface);
+
+    border-radius: var(--radius-md);
+
+    transition: border-color var(--transition);
+}
+
+.focus-card:hover {
+    border-color: var(--border-hover);
+}
+
+.focus-number {
+    color: var(--accent);
+
+    font-family: var(--font-mono);
+    font-size: 11px;
+}
+
+.focus-card h3 {
+    margin-top: 20px;
+
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+}
+
+.focus-card p {
+    margin-top: 10px;
+
+    color: var(--text-secondary);
+
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   03. EXPERTISE
+========================================= */
+
+.expertise-section {
+    padding: 85px 0;
+
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+
+    background: #0d0d0d;
+}
+
+.expertise-list {
+    border-top: 1px solid var(--border);
+}
+
+.expertise-row {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 40px;
+
+    padding: 28px 0;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.expertise-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.expertise-title span {
+    color: var(--text-muted);
+
+    font-family: var(--font-mono);
+    font-size: 11px;
+}
+
+.expertise-title h3 {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.expertise-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.expertise-items span {
+    padding: 7px 11px;
+
+    border: 1px solid var(--border);
+    border-radius: 5px;
+
+    color: var(--text-secondary);
+
+    font-size: 12px;
+}
+
+
+/* =========================================
+   04. RESPONSIVE (HOME)
+========================================= */
+
+@media (max-width: 800px) {
+    .hero {
+        padding-top: 90px;
+        padding-bottom: 80px;
+    }
+
+    .focus-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .expertise-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero {
+        padding-top: 75px;
+        padding-bottom: 70px;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .hero-meta {
+        font-size: 9px;
+        gap: 7px;
+    }
+
+    .expertise-row {
+        padding: 24px 0;
+    }
+}

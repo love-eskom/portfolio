@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Khulekani Thabethe | Security & Network Engineering</title>
-    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon/favicon.svg"/>
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon/favicon.svg" />
     <meta name="description"
         content="Computer Science student focused on cybersecurity, network engineering, detection systems and practical software development.">
 
@@ -19,7 +19,12 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/home.css" />
+    <link rel="stylesheet" href="assets/css/projects.css" />
+    <link rel="stylesheet" href="assets/css/notes.css" />
+    <link rel="stylesheet" href="assets/css/about.css" />
+
 </head>
 
 <body>
@@ -67,7 +72,7 @@
             <p class="tagline">
                 BUILD. DETECT. DEFEND.
             </p>
-            
+
             <p class="hero-description">
                 Computer Science student developing practical security tools,
                 detection systems and network infrastructure.
@@ -524,91 +529,88 @@
         </section>
 
 
-        
-        <div class="contact-actions">
-            
-            <!-- Contact -->
-            <section class="contact-section container" id="contact">
-            
-                <div class="contact-panel contact-panel-form">
-            
-                    <div class="contact-intro">
-            
-                        <span class="section-label">
-                            CONTACT / OPPORTUNITIES
-                        </span>
-            
-                        <h2>
-                            Have something
-                            <span>worth discussing?</span>
-                        </h2>
-            
-                        <p>
-                            Whether it's an internship opportunity, technical
-                            collaboration, networking conversation or simply
-                            connecting professionally, feel free to reach out.
-                        </p>
-            
-                        <div class="contact-direct-links">
-            
-                            <a href="https://github.com/love-eskom" target="_blank" rel="noopener noreferrer">
-                                GitHub ↗
-                            </a>
-            
-                            <a href="https://www.linkedin.com/in/gcinikhaya-thabethe/" target="_blank" rel="noopener noreferrer">
-                                LinkedIn ↗
-                            </a>
-            
-                        </div>
-            
+        <!-- Contact -->
+        <section class="contact-section container" id="contact">
+
+            <div class="contact-panel contact-panel-form">
+
+                <div class="contact-intro">
+
+                    <span class="section-label">
+                        CONTACT / OPPORTUNITIES
+                    </span>
+
+                    <h2>
+                        Have something
+                        <span>worth discussing?</span>
+                    </h2>
+
+                    <p>
+                        Whether it's an internship opportunity, technical
+                        collaboration, networking conversation or simply
+                        connecting professionally, feel free to reach out.
+                    </p>
+
+                    <div class="contact-direct-links">
+
+                        <a href="https://github.com/love-eskom" target="_blank" rel="noopener noreferrer">
+                            GitHub ↗
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/gcinikhaya-thabethe/" target="_blank"
+                            rel="noopener noreferrer">
+                            LinkedIn ↗
+                        </a>
+
                     </div>
-            
-            
-                    <!-- Replace YOUR_FORM_ID with your actual Formspree ID -->
-                    <form class="contact-form" action="https://formspree.io/f/xeagnljv" method="POST">
-            
-                        <!-- Honeypot spam prevention (make sure .honeypot has display: none in style.css) -->
-                        <input type="text" name="_gotcha" class="honeypot" style="display: none;" tabindex="-1" autocomplete="off"
-                            aria-hidden="true">
-            
-                        <!-- Optional: sets the email subject line in Formspree -->
-                        <input type="hidden" name="_subject" value="New portfolio inquiry from khulekani.dev">
-            
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" placeholder="Your name" autocomplete="name" required>
-                        </div>
-            
-                        <div class="form-group">
-                            <label for="email">Email address</label>
-                            <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
-                        </div>
-            
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" placeholder="What would you like to discuss?" required>
-                        </div>
-            
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" placeholder="Write your message here..."
-                                required></textarea>
-                        </div>
-            
-                        <button type="submit" class="button button-primary form-submit">
-                            Send message
-                            <span>↗</span>
-                        </button>
-            
-                        <p class="form-note">
-                            Your information will only be used to respond to your message.
-                        </p>
-            
-                    </form>
-            
+
                 </div>
-            
-            </section>
+
+
+                <form class="contact-form" action="https://formspree.io/f/xeagnljv" method="POST">
+
+                    <input type="text" name="_gotcha" class="honeypot" style="display: none;" tabindex="-1"
+                        autocomplete="off" aria-hidden="true">
+
+                    <input type="hidden" name="_subject" value="New portfolio inquiry from khulekani.dev">
+
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" autocomplete="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="What would you like to discuss?"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Write your message here..."
+                            required></textarea>
+                    </div>
+
+                    <button type="submit" class="button button-primary form-submit">
+                        Send message
+                        <span>↗</span>
+                    </button>
+
+                    <p class="form-note">
+                        Your information will only be used to respond to your message.
+                    </p>
+
+                </form>
+
+            </div>
+
+        </section>
 
     </main>
 
@@ -618,16 +620,16 @@
 
         <div class="container footer-content">
 
-            <span class="brand">
+            <a href="index.html" class="brand">
                 khulekani<span>.dev</span>
-            </span>
+            </a>
 
-            <p>
-                Designed, developed and documented by Khulekani.
+            <p class="tagline">
+                BUILD &middot; DETECT &middot; DEFEND
             </p>
 
             <span class="footer-copy">
-                © 2026
+                &copy; 2026
             </span>
 
         </div>
